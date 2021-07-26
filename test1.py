@@ -12,9 +12,15 @@ html = soup.find(id = "curr_table").tbody
 y = html.text
 list1 = y.split("\n\n")
 result = {}
-for i in list1[0:]:
+for i in list1[1:-1]:
     a = i.split("\n")
-    print(a)
+    if a[0] == "":
+        v = a[6].split("M")
+        result.update({a[1]:{"close": a[2], "open": a[3], "high": a[4], "low": a[5], "vol": v[0]+"M", "range":v[1]}})
+    else:
+        v = a[5].split("M")
+        result.update({a[0]:{"close": a[1], "open": a[2], "high": a[3], "low": a[4], "vol": v[0]+"M", "range":v[1]}})
+print(result)
 # import re
 # list1 = html.split("<tr>\n<td class=\"first left bold noWrap\" data-real-value=")
 # dict_result = [];day2 = [];prise2 = [];volume2=[];percent2=[];
