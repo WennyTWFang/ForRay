@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+    <title>Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="light.css" rel="stylesheet" type="text/css">
+<script src='jquery200.js'></script>
+<script src='jquery.dataTables.js'></script>
+<link href='jquery.dataTables.css' rel='stylesheet'></link>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+
+    <div class="card-body" style="width:40%;">
+        <form class="" action="/action_page.php">
+            <div class="row">
+                <div class="form-group form-group-default required">
+                    <label>姓名</label>
+                    <input type="text" class="form-control" required="" name="InputName">
+                </div>
+                
+            </div>
+            <div class="form-group  form-group-default required">
+                <label for="phone">電話</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="ex: 09xxxxxxxx" required="" pattern="[0-9]{10}" name="Inputphone">
+            </div>
+            <div class="form-group form-group-default required">
+                <label>聯絡地址</label>
+                <input type="text" class="form-control" placeholder="Input you address" name="InputAd">
+            </div>
+            <input type="submit" value="Submit" style="width:120px;height:40px;font-size:20px;" onclick="display_alert();">
+        </form>
+
+    </div>
+  <h1 style="color: #465c8b;">History</h1>
+    <table id="SummaryTable" border="0" cellpadding="3" cellspacing="3">
+        <thead>
+            <tr style="background-color: #798EBC;color: white;">
+                <th>日期</th>
+                <th>收盤</th>
+                <th>開盤</th>
+                <th>高</th>
+                <th>低</th>
+                <th>交易量</th>
+                <th>漲幅量</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr>
+            <td align="center" valign="middle">2021/7/23</td>
+            <td align="center">148.56</td>
+            <td align="center">147.55</td>
+            <td align="center">148.72</td>
+            <td align="center">146.92</td>
+            <td align="center">71.45M</td>
+            <td align="center">1.20%</td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">2021/7/22</td>
+            <td align="center">145.40</td>
+            <td align="center">145.53</td>
+            <td align="center">146.13</td>
+            <td align="center">144.63</td>
+            <td align="center">74.99M</td>
+            <td align="center">-0.51%</td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">2021/7/21</td>
+            <td align="center">148.56</td>
+            <td align="center">147.55</td>
+            <td align="center">148.72</td>
+            <td align="center">146.92</td>
+            <td align="center">71.45M</td>
+            <td align="center">1.20%</td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">2021/7/20</td>
+            <td align="center">146.15</td>
+            <td align="center">143.46</td>
+            <td align="center">147.10</td>
+            <td align="center">142.96</td>
+            <td align="center">96.35M</td>
+            <td align="center">2.60%</td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">2021/7/19</td>
+            <td align="center">142.45</td>
+            <td align="center">143.75</td>
+            <td align="center">144.07</td>
+            <td align="center">141.67</td>
+            <td align="center">121.43M</td>
+            <td align="center">-2.69%</td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">2021/7/16</td>
+            <td align="center">146.39</td>
+            <td align="center">148.46</td>
+            <td align="center">149.76</td>
+            <td align="center">145.88</td>
+            <td align="center">93.5M</td>
+            <td align="center">-1.41%</td>
+        </tr>
+
+        <tr>
+            <td align="center" valign="middle">2021/7/15</td>
+            <td align="center">148.48</td>
+            <td align="center">149.25</td>
+            <td align="center">149.98</td>
+            <td align="center">147.10</td>
+            <td align="center">106.82M</td>
+            <td align="center">-0.45%</td>
+        </tr>
+        <tr>
+            <td align="center" valign="middle">2021/7/14</td>
+            <td align="center">149.15</td>
+            <td align="center">148.00</td>
+            <td align="center">149.57</td>
+            <td align="center">147.70</td>
+            <td align="center">127.05M</td>
+            <td align="center">2.41%</td>
+        </tr><tr>
+            <td align="center" valign="middle">2021/7/13</td>
+            <td align="center">145.64</td>
+            <td align="center">143.70</td>
+            <td align="center">147.46</td>
+            <td align="center">143.70</td>
+            <td align="center">100.83M</td>
+            <td align="center">0.79%</td>
+        </tr><tr>
+            <td align="center" valign="middle">2021/7/12</td>
+            <td align="center">144.50</td>
+            <td align="center">146.22</td>
+            <td align="center">146.22</td>
+            <td align="center">144.04</td>
+            <td align="center">76.30M</td>
+            <td align="center">-0.42%</td>
+        </tr>
+
+    </tbody>
+    </table>
+  </div>
+<script>
+$(document).ready( function () {
+    $('#SummaryTable').DataTable();
+} );
+</script>
+<style type="text/css">
+    #SummaryTable {border-collapse:collapse;width: 1000px;}
+    #SummaryTable td {border: 1px solid #888888;padding: 10px;}
+    #SummaryTable tr:nth-child(even){background-color:#e8e8e8;}
+    #SummaryTable tr:hover{background-color:#C0CCE6;}
+</style>
+
+
+<script src="alert.js"></script>
+</body>
+</html>
+
