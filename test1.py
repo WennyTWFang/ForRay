@@ -11,8 +11,10 @@ soup = BeautifulSoup(response.text, 'html.parser')
 html = soup.find(id = "curr_table").tbody
 y = html.text
 list1 = y.split("\n\n")
-
-print(y)
+result = {}
+for i in list1[0:]:
+    a = i.split("\n")
+    print(a)
 # import re
 # list1 = html.split("<tr>\n<td class=\"first left bold noWrap\" data-real-value=")
 # dict_result = [];day2 = [];prise2 = [];volume2=[];percent2=[];
