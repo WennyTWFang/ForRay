@@ -11,10 +11,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 html = soup.find(id = "curr_table").tbody
 y = html.text
 list1 = y.split("\n\n")
-result = {}
-for i in list1[1:]:
-    a = i.split("\n")
-    result.update({a[0]:{a[1]}})
+
 print(y)
 # import re
 # list1 = html.split("<tr>\n<td class=\"first left bold noWrap\" data-real-value=")
